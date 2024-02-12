@@ -2,16 +2,17 @@
   <div class="container-box">
     <div class="container">
       <b-navbar variant="faded" type="light">
-        <b-navbar-brand href="#">Video stream</b-navbar-brand>
+        <b-navbar-brand href="#"><router-link to="/">Video stream</router-link></b-navbar-brand>
       </b-navbar>
       <b-nav>
-        <b-nav-item>Трансляции</b-nav-item>
+        <b-nav-item><router-link to="/stream">Трансляции</router-link></b-nav-item>
         <b-nav-item v-b-modal.modal-2>Регистрация</b-nav-item>
-        <b-nav-item v-b-modal.modal-1>Войти</b-nav-item>
+        <b-nav-item v-b-modal.modal-1>Вход</b-nav-item>
+        <b-nav-item><router-link to="/profile">Профиль</router-link></b-nav-item>
       </b-nav>
 
       <!-- Модальное окно логина -->
-      <b-modal id="modal-1" title="Войти">
+      <b-modal id="modal-1" title="Вход">
         <b-form @submit.stop.prevent>
           <label for="username">Имя пользователя</label>
           <b-form-input
@@ -20,7 +21,7 @@
             id="username"
           ></b-form-input>
           <b-form-invalid-feedback :state="validationUsername">
-            Имя пользователя должно быть не меньше 5 и не больше 12 символов.
+            Имя пользователя должно быть не меньше 5 и не больше 20 символов.
           </b-form-invalid-feedback>
           <b-form-valid-feedback :state="validationUsername">
           </b-form-valid-feedback>
@@ -49,7 +50,7 @@
             id="username"
           ></b-form-input>
           <b-form-invalid-feedback :state="validationUsername">
-            Имя пользователя должно быть не меньше 5 и не больше 12 символов.
+            Имя пользователя должно быть не меньше 5 и не больше 20 символов.
           </b-form-invalid-feedback>
           <b-form-valid-feedback :state="validationUsername">
           </b-form-valid-feedback>
@@ -81,7 +82,7 @@ export default {
   },
   computed: {
     validationUsername() {
-      return this.username.length > 4 && this.username.length < 13;
+      return this.username.length > 4 && this.username.length < 21;
     },
     validationPassword() {
       return this.password.length > 2 && this.password.length < 13;
